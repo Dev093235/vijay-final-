@@ -3,96 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VibesDigitals | We Craft Digital Experiences</title>
+    <title>VibesDigitals | The Future of Digital</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
 
     <header class="navbar">
         <div class="container">
             <a href="#" class="logo">Vibes<span>Digitals</span></a>
             <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#portfolio">Work</a>
-                <a href="#contact">Contact</a>
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#work" class="nav-item">Work</a>
             </nav>
+            <a href="#contact" class="btn-contact nav-item">Let's Talk</a>
         </div>
     </header>
 
     <main>
         <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Crafting Digital Vibes That Resonate</h1>
-                    <p class="hero-subtitle">We build stunning websites and powerful digital strategies that elevate your brand and drive growth.</p>
-                    <a href="#services" class="btn btn-primary">Explore Our Services</a>
+            <div class="aurora-bg"></div>
+            <div class="container hero-content">
+                <h1 class="hero-title reveal">
+                    <span>We Don't Just</span>
+                    <span>Build Websites,</span>
+                    <span>We Engineer Digital</span>
+                    <span class="highlight">Vibes.</span>
+                </h1>
+                <p class="hero-subtitle reveal">Unleash your brand's true potential with cutting-edge design and unparalleled digital strategy.</p>
+                <div class="hero-cta reveal">
+                    <a href="#work" class="btn btn-primary">View Our Universe</a>
                 </div>
             </div>
-            <div class="hero-bg-shape"></div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container about-grid">
+                <div class="about-image reveal">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTk5Mzh8MHwxfGFsbHx8fHx8fHx8fDE3MTI4NDQ5NTZ8&ixlib=rb-4.0.3&q=80&w=1080" alt="Team Collaboration">
+                </div>
+                <div class="about-content reveal">
+                    <h2 class="section-title">Who We Are</h2>
+                    <p>VibesDigitals is not just another agency. We are a collective of digital architects, creative thinkers, and tech wizards dedicated to crafting immersive and impactful digital experiences. We believe in the power of good design and the magic of flawless code.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>100+</h3>
+                            <p>Projects Launched</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="services" class="services-section">
             <div class="container">
-                <div class="section-title">
-                    <h2>Our Core Services</h2>
-                    <p>We offer a complete suite of digital solutions.</p>
-                </div>
+                <h2 class="section-title text-center reveal">Our Digital Arsenal</h2>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    <div class="service-card-wrapper reveal">
+                        <div class="service-card">
+                            <h3>Next-Gen Web Development</h3>
+                            <p>From sleek landing pages to complex web applications, we build fast, secure, and scalable solutions.</p>
                         </div>
-                        <h3>Web Development</h3>
-                        <p>Creating blazing-fast, responsive, and visually stunning websites tailored to your brand.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <div class="service-card-wrapper reveal">
+                        <div class="service-card">
+                            <h3>Strategic Digital Marketing</h3>
+                            <p>We use data-driven strategies to connect your brand with the right audience at the right time.</p>
                         </div>
-                        <h3>Digital Marketing</h3>
-                        <p>Driving targeted traffic and generating qualified leads through data-driven marketing campaigns.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <div class="service-card-wrapper reveal">
+                        <div class="service-card">
+                            <h3>Immersive UI/UX Design</h3>
+                            <p>We design interfaces that are not only beautiful but also intuitive, accessible, and a joy to use.</p>
                         </div>
-                        <h3>UI/UX Design</h3>
-                        <p>Designing intuitive, engaging, and user-centric interfaces that deliver a flawless user experience.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="portfolio" class="portfolio-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Our Recent Work</h2>
-                    <p>We are proud of the work we've done.</p>
-                </div>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1559028006-44d08a528797?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTk5Mzh8MHwxfGFsbHx8fHx8fHx8fDE3MTI4MzY4MTZ8&ixlib=rb-4.0.3&q=80&w=1080" alt="Project 1"></div>
-                    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTk5Mzh8MHwxfGFsbHx8fHx8fHx8fDE3MTI4MzY4MTZ8&ixlib=rb-4.0.3&q=80&w=1080" alt="Project 2"></div>
-                    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1555774698-0b77e0ab2329?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTk5Mzh8MHwxfGFsbHx8fHx8fHx8fDE3MTI4MzY5OTJ8&ixlib=rb-4.0.3&q=80&w=1080" alt="Project 3"></div>
-                    <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTk5Mzh8MHwxfGFsbHx8fHx8fHx8fDE3MTI4MzY5OTJ8&ixlib=rb-4.0.3&q=80&w=1080" alt="Project 4"></div>
-                </div>
-            </div>
-        </section>
+        
     </main>
 
     <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <h3>Ready to Vibe with Us?</h3>
-                <p>Let's create something amazing together. Reach out to us.</p>
-                <a href="mailto:hello@vibesdigitals.com" class="btn btn-secondary">hello@vibesdigitals.com</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 VibesDigitals. All Rights Reserved.</p>
-            </div>
+        <div class="container text-center reveal">
+            <h2 class="footer-title">Have a Project in Mind?</h2>
+            <p>Let's collaborate and create something extraordinary.</p>
+            <a href="mailto:contact@vibesdigitals.pro" class="btn btn-secondary">contact@vibesdigitals.pro</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VibesDigitals. Crafted with 💜 in the digital cosmos.</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
