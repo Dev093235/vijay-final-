@@ -1,70 +1,100 @@
 // --- Preloader ---
+const preloader = document.getElementById('preloader');
 window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    preloader.style.opacity = '0';
-    setTimeout(() => {
-        preloader.style.display = 'none';
-    }, 500);
+    preloader.style.top = '-100vh';
 });
 
-// --- Custom Cursor ---
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-const navItems = document.querySelectorAll('.nav-item, .logo, .btn');
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
-window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: 'forwards' });
+// --- Hero Title Animation ---
+const heroLines = gsap.utils.toArray('.hero-title .line span');
+gsap.from(heroLines, {
+    yPercent: 120,
+    stagger: 0.1,
+    duration: 1,
+    ease: 'power3.out',
+    delay: 1 // Delay to allow preloader to finish
 });
 
-navItems.forEach(item => {
-    item.addEventListener('mouseover', () => {
-        cursorOutline.classList.add('hover');
-    });
-    item.addEventListener('mouseleave', () => {
-        cursorOutline.classList.remove('hover');
-    });
+// --- Intro Text Animation ---
+const introText = document.querySelector('.intro-text');
+gsap.from(introText, {
+    opacity: 0,
+    y: 50,
+    scrollTrigger: {
+        trigger: '.intro-section',
+        start: 'top 70%',
+        end: 'bottom 90%',
+        scrub: 1
+    }
 });
 
-// --- 3D Tilt Effect for Service Cards ---
-const cards = document.querySelectorAll('.service-card-wrapper');
-cards.forEach(card => {
-    const cardContent = card.querySelector('.service-card');
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -10;
-        const rotateY = ((x - centerX) / centerX) * 10;
-        
-        cardContent.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        cardContent.style.transform = 'rotateX(0deg) rotateY(0deg)';
-    });
-});
-
-// --- Scroll Reveal Animation ---
-const revealElements = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+// --- Services Section Stagger Animation ---
+const serviceItems = gsap.utils.toArray('.service-item');
+serviceItems.forEach(item => {
+    gsap.from(item, {
+        opacity: 0,
+        y: 100,
+        scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
         }
     });
-}, { threshold: 0.1 });
+});
 
-revealElements.forEach(el => {
-    observer.observe(el);
+// --- Horizontal Scrolling ---
+const track = document.querySelector('.scroll-track');
+const horizontalSection = document.querySelector('.horizontal-scroll-section');
+
+let amount = track.offsetWidth - window.innerWidth;
+
+gsap.to(track, {
+    x: -amount,
+    scrollTrigger: {
+        trigger: horizontalSection,
+        start: 'top top',
+        end: `+=${amount}`,
+        pin: true,
+        scrub: 1,
+        markers: false // Set to true to debug
+    }
+});
+
+
+// --- CTA Title Animation ---
+const ctaLines = gsap.utils.toArray('.cta-title span');
+gsap.from(ctaLines, {
+    yPercent: 120,
+    stagger: 0.05,
+    scrollTrigger: {
+        trigger: '.cta-section',
+        start: 'top 60%',
+    }
+});
+
+// --- Magnetic Button ---
+const magneticBtn = document.querySelector('.magnetic-btn');
+const btnText = document.querySelector('.btn-text');
+
+magneticBtn.addEventListener('mousemove', (e) => {
+    const rect = magneticBtn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    gsap.to(btnText, {
+        x: x * 0.4,
+        y: y * 0.4,
+        duration: 1,
+        ease: 'elastic.out(1, 0.3)'
+    });
+});
+
+magneticBtn.addEventListener('mouseleave', () => {
+    gsap.to(btnText, {
+        x: 0,
+        y: 0,
+        duration: 1,
+        ease: 'elastic.out(1, 0.3)'
+    });
 });
